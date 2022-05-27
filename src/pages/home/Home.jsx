@@ -5,64 +5,7 @@ import { useData } from "../../context/data-context";
 import "./home.css";
 
 export default function Home() {
-  //   const [coinData, setCoinData] = useState([]);
-  const { dispatch, finalData } = useData();
-  const [parameters, setParameters] = useState([
-    {
-      id: 0,
-      name: "RANK",
-      status: false,
-    },
-    {
-      id: 1,
-      name: "NAME",
-      status: false,
-    },
-    {
-      id: 2,
-      name: "PRICE",
-      status: false,
-    },
-    {
-      id: 3,
-      name: "MARKET CAP",
-      status: false,
-    },
-    {
-      id: 4,
-      name: "VOLUME",
-      status: false,
-    },
-    {
-      id: 5,
-      name: "SUPPLY",
-      status: false,
-    },
-    {
-      id: 6,
-      name: "PRICE CHANGE(1H)",
-      status: false,
-    },
-    {
-      id: 7,
-      name: "PRICE CHANGE(1D)",
-      status: false,
-    },
-    {
-      id: 8,
-      name: "PRICE CHANGE(1W)",
-      status: false,
-    },
-    // "Rank",
-    // "Name",
-    // "Price",
-    // "Market Cap",
-    // "Volume",
-    // "Supply",
-    // "Price Change(1H)",
-    // "Price Change(1D)",
-    // "Price Change(1W)",
-  ]);
+  const { dispatch, finalData, parameters, setParameters } = useData();
 
   useEffect(() => {
     async function getCoinData() {
@@ -70,7 +13,6 @@ export default function Home() {
         const response = await axios.get(
           "https://api.coinstats.app/public/v1/coins?skip=0&limit=40&currency=USD"
         );
-        // setCoinData(response.data.coins);
         dispatch({ type: "DATA", payload: response.data.coins });
       } catch (error) {
         console.log(error);
