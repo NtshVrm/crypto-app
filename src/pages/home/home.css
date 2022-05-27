@@ -1,0 +1,38 @@
+.page-container {
+  display: grid;
+  grid-template-rows: 0.1fr 1fr 0.1fr;
+  grid-template-areas:
+    "navbar"
+    "main"
+    "footer";
+  height: 100vh;
+}
+
+.navbar-container {
+  grid-area: navbar;
+  background-color: aqua;
+}
+
+.main-container {
+  grid-area: main;
+  background-color: salmon;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.table {
+  width: 100%;
+}
+
+td {
+  text-align: center;
+}
+/* .table-header {
+  position: sticky;
+  top: 0;
+} */
+
+.footer-container {
+  grid-area: footer;
+  background-color: blue;
+}
