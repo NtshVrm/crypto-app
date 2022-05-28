@@ -5,7 +5,6 @@ import { useNavigate } from "react-router";
 import "./Navbar.css";
 
 export default function Navbar() {
-  const navItems = ["Favourite", "Latest News"];
   const [navState, setNavState] = useState(false);
   const navigate = useNavigate();
   return (
@@ -15,13 +14,12 @@ export default function Navbar() {
         CoinStream
       </div>
       <div className={`item-container ${navState ? "" : "hidden"}`}>
-        {navItems.map((item) => {
-          return (
-            <div className="item" onClick={() => navigate(`/${item}`)}>
-              {item}
-            </div>
-          );
-        })}
+        <div className="item" onClick={() => navigate("/Favourite")}>
+          Favourite
+        </div>
+        <div className="item" onClick={() => navigate("/")}>
+          Latest News
+        </div>
       </div>
       <div className="toggle" onClick={() => setNavState((prev) => !prev)}>
         {navState ? (
