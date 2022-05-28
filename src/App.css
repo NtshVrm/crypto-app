@@ -3,6 +3,7 @@
 :root {
   --primary-color: #2563eb;
   --primary-hover: #bfdbfe;
+  --bg-gray: #e4e4e7;
 }
 
 .App {
