@@ -9,7 +9,7 @@ export default function Navbar() {
   const navigate = useNavigate();
   return (
     <div className="navbar-container">
-      <div className="logo" onClick={() => navigate("/Home")}>
+      <div className="logo" onClick={() => navigate("/")}>
         <FontAwesomeIcon icon={faCoins} />
         CoinStream
       </div>
