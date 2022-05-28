@@ -19,3 +19,7 @@
   display: flex;
   align-items: center;
 }
+
+.error {
+  font-size: 1.3rem;
+}

@@ -28,9 +28,13 @@ export default function Favourite() {
               );
             })}
           </tr>
-          {favData.map((coin) => {
-            return <FavItem coin={JSON.parse(coin)} />;
-          })}
+          {favData.length > 0 ? (
+            favData.map((coin) => {
+              return <FavItem coin={JSON.parse(coin)} />;
+            })
+          ) : (
+            <span className="primary error">"Oops, the list is empty"</span>
+          )}
         </table>
       </div>
       <div className="footer-container">Made by Nitish Varma</div>
