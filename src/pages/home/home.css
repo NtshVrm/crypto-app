@@ -10,7 +10,7 @@
 
 .navbar-container {
   grid-area: navbar;
-  background-color: aqua;
+  /* background-color: aqua; */
 }
 
 .main-container {
@@ -31,6 +31,16 @@ td {
   position: sticky;
   top: 0;
 } */
+
+.filter-container {
+  display: flex;
+  /* background-color: blue; */
+  justify-content: space-between;
+}
+
+.filters {
+  display: flex;
+}
 
 .footer-container {
   grid-area: footer;

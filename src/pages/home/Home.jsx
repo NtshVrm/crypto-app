@@ -1,6 +1,8 @@
+import { faArrowDown, faArrowUp } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
-import { useEffect, useState } from "react";
-import { CoinItem } from "../../components";
+import { useEffect } from "react";
+import { CoinItem, Navbar } from "../../components";
 import { useData } from "../../context/data-context";
 import "./home.css";
 
@@ -20,12 +22,37 @@ export default function Home() {
     }
     getCoinData();
   });
+  let filters = parameters.filter((item) => item.status !== 1);
+
   return (
     <div className="page-container">
-      <div className="navbar-container">NAVBAR</div>
+      <Navbar />
       <div className="main-container">
-        <div>
-          <div onClick={() => dispatch({ type: "CLEAR" })}>CLEAR</div>
+        <div className="filter-container">
+          <div className="filters">
+            {filters.length >= 1 ? "Filtering By:" : ""}
+            {filters.map((item) => {
+              return (
+                <div>
+                  {item.name}{" "}
+                  {item.status % 2 === 0 ? (
+                    <FontAwesomeIcon icon={faArrowDown} />
+                  ) : (
+                    <FontAwesomeIcon icon={faArrowUp} />
+                  )}
+                </div>
+              );
+            })}
+          </div>
+          <div
+            className="filter-clear"
+            onClick={() => {
+              dispatch({ type: "CLEAR" });
+              parameters.map((item) => (item.status = 1));
+            }}
+          >
+            CLEAR
+          </div>
         </div>
         <table className="table">
           <tr className="table-header">
@@ -35,7 +62,8 @@ export default function Home() {
                   onClick={() => {
                     const newParam = parameters.map((item) => {
                       if (item.id === param.id) {
-                        return { ...item, status: !param.status };
+                        // return { ...item, status: !param.status };
+                        return { ...item, status: param.status + 1 };
                       }
                       return item;
                     });
@@ -43,7 +71,8 @@ export default function Home() {
                     dispatch({
                       type: "SORT",
                       payload: param.name,
-                      sortType: param.status ? "HIGH_TO_LOW" : "LOW_TO_HIGH",
+                      sortType:
+                        param.status % 2 === 0 ? "HIGH_TO_LOW" : "LOW_TO_HIGH",
                     });
                     console.log(param.name, param.status);
                   }}

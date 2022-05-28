@@ -18,47 +18,47 @@ const DataProvider = ({ children }) => {
     {
       id: 0,
       name: "RANK",
-      status: false,
+      status: 1,
     },
     {
       id: 1,
       name: "NAME",
-      status: false,
+      status: 1,
     },
     {
       id: 2,
       name: "PRICE",
-      status: false,
+      status: 1,
     },
     {
       id: 3,
       name: "MARKET CAP",
-      status: false,
+      status: 1,
     },
     {
       id: 4,
       name: "VOLUME",
-      status: false,
+      status: 1,
     },
     {
       id: 5,
       name: "SUPPLY",
-      status: false,
+      status: 1,
     },
     {
       id: 6,
       name: "PRICE CHANGE(1H)",
-      status: false,
+      status: 1,
     },
     {
       id: 7,
       name: "PRICE CHANGE(1D)",
-      status: false,
+      status: 1,
     },
     {
       id: 8,
       name: "PRICE CHANGE(1W)",
-      status: false,
+      status: 1,
     },
   ]);
   const [state, dispatch] = useReducer(dataReducer, {
