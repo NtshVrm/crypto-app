@@ -34,21 +34,27 @@ const DataProvider = ({ children }) => {
       id: 3,
       name: "MARKET CAP",
       status: 1,
+      mobile: true,
     },
     {
       id: 4,
       name: "VOLUME",
       status: 1,
+      mobile: true,
     },
     {
       id: 5,
       name: "SUPPLY",
       status: 1,
+      mobile: true,
+      tab: true,
     },
     {
       id: 6,
       name: "PRICE CHANGE(1H)",
       status: 1,
+      mobile: true,
+      tab: true,
     },
     {
       id: 7,
@@ -59,6 +65,8 @@ const DataProvider = ({ children }) => {
       id: 8,
       name: "PRICE CHANGE(1W)",
       status: 1,
+      mobile: true,
+      tab: true,
     },
   ]);
   const [state, dispatch] = useReducer(dataReducer, {
@@ -69,7 +77,25 @@ const DataProvider = ({ children }) => {
     dayChange_sort: null,
     hourChange_sort: null,
     weekChange_sort: null,
+    favList: [],
+    favType: null,
+    remove: null,
   });
+
+  function getFavData(favList, favType) {
+    if (favType !== null && !favList.includes(JSON.stringify(favType))) {
+      favList.push(JSON.stringify(favType));
+    }
+    return favList;
+  }
+
+  function removeData(favList, remove) {
+    const index = favList.indexOf(JSON.stringify(remove));
+    if (index > -1) {
+      favList.splice(index, 1);
+    }
+    return favList;
+  }
 
   const sortedData = getRankData(state.data, state.rank_sort);
   const priceData = getPriceData(sortedData, state.price_sort);
@@ -85,10 +111,20 @@ const DataProvider = ({ children }) => {
   );
   const volumeData = getVolumeData(weekChangeData, state.volume_sort);
   const supplyData = getSupplyData(volumeData, state.supply_sort);
+
+  const output = getFavData(state.favList, state.favType);
+  const favData = removeData(output, state.remove);
+
   const finalData = supplyData;
   return (
     <DataContext.Provider
-      value={{ parameters, setParameters, dispatch, finalData }}
+      value={{
+        parameters,
+        setParameters,
+        dispatch,
+        finalData,
+        favData,
+      }}
     >
       {children}
     </DataContext.Provider>

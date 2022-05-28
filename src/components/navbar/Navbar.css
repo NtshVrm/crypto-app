@@ -5,13 +5,15 @@
   align-items: center;
   font-size: 1.3rem;
   padding: 0 0.5rem 0 0.5rem;
-  color: #2563eb;
+  color: var(--primary-color);
 }
 
 .logo {
   display: flex;
   align-items: center;
   gap: 1rem;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .item-container {
@@ -25,7 +27,7 @@
 
 .item:hover {
   cursor: pointer;
-  background-color: #bfdbfe;
+  background-color: var(--primary-hover);
   border-radius: 1rem;
 }
 

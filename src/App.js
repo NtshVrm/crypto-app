@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router";
 import "./App.css";
-import { Home } from "./pages";
+import { Favourite, Home } from "./pages";
 
 function App() {
   return (
@@ -8,6 +8,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Home" element={<Home />} />
+        <Route path="/Favourite" element={<Favourite />} />
       </Routes>
     </div>
   );

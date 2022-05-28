@@ -10,39 +10,108 @@
 
 .navbar-container {
   grid-area: navbar;
-  /* background-color: aqua; */
+  border-bottom: 2px solid var(--primary-color);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 
 .main-container {
   grid-area: main;
-  background-color: salmon;
   overflow-y: scroll;
   overflow-x: hidden;
 }
 
 .table {
   width: 100%;
+  border-spacing: 0.5rem;
 }
 
 td {
   text-align: center;
 }
-/* .table-header {
-  position: sticky;
-  top: 0;
-} */
+
+.header-item {
+  color: var(--primary-color);
+  padding: 0.5rem;
+  border: 1px solid var(--primary-color);
+  border-radius: 0.5rem;
+  background-color: lightgray;
+}
+
+.header-item:hover {
+  cursor: pointer;
+
+  background-color: var(--primary-hover);
+}
 
 .filter-container {
   display: flex;
-  /* background-color: blue; */
   justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  color: var(--primary-color);
+  font-weight: bold;
+  text-transform: capitalize;
+  font-size: 1rem;
+  font-style: italic;
+  margin: 1rem 0rem;
 }
 
 .filters {
   display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.filter-item {
+  background-color: var(--primary-hover);
+  color: var(--primary-color);
+  font-weight: bold;
+  padding: 0.5rem;
+  border-radius: 2rem;
+}
+
+.filter-clear {
+  font-style: normal;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 2rem;
+  border: 1px solid var(--primary-color);
+}
+
+.filter-clear:hover {
+  cursor: pointer;
+  background-color: var(--primary-hover);
 }
 
 .footer-container {
   grid-area: footer;
-  background-color: blue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 570px) {
+  .mobile-hidden {
+    display: none;
+  }
+  .table {
+    font-size: 0.7rem;
+  }
+  .filter-container {
+    font-size: 0.8rem;
+    margin: 0.5rem 0;
+  }
+}
+
+@media screen and (max-width: 835px) {
+  .tab-hidden {
+    display: none;
+  }
 }

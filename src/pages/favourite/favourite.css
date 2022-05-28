@@ -1,0 +1,21 @@
+.fav-container {
+  display: flex;
+  /* justify-content: space-between; */
+  background-color: aqua;
+  justify-content: center;
+
+  gap: 1rem;
+}
+
+.fav-item {
+  background-color: blue;
+  display: flex;
+  gap: 2rem;
+  width: 400px;
+  align-items: center;
+}
+
+.name {
+  display: flex;
+  align-items: center;
+}

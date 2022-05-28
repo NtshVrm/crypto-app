@@ -4,6 +4,12 @@ const dataReducer = (state, action) => {
     case "DATA": {
       return { ...state, data: action.payload };
     }
+    case "FILTER": {
+      return { ...state, favType: action.payload };
+    }
+    case "DELETE": {
+      return { ...state, remove: action.payload };
+    }
     case "SORT": {
       // eslint-disable-next-line default-case
       switch (action.payload) {
@@ -41,6 +47,9 @@ const dataReducer = (state, action) => {
         market_sort: null,
         dayChange_sort: null,
         hourChange_sort: null,
+        favList: [],
+        favType: null,
+        remove: null,
       };
     }
     default:
