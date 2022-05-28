@@ -1,0 +1,50 @@
+.coin-icon {
+  height: 40px;
+  width: 40px;
+  border: 2px solid var(--primary-color);
+  border-radius: 50%;
+}
+
+/* td {
+  height: fit-content;
+  vertical-align: top;
+  background-color: aqua;
+} */
+
+tr {
+  height: 1px;
+}
+
+.favourite-icon {
+  color: var(--primary-color);
+  font-size: 1.2rem;
+}
+
+.favourite-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.coin-name {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+.primary {
+  color: var(--primary-color);
+}
+
+.red {
+  color: red;
+  font-weight: bold;
+}
+
+.green {
+  color: green;
+  font-weight: bold;
+}
