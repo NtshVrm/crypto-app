@@ -11,30 +11,39 @@ export default function Favourite() {
       <Navbar />
       <div>
         <table className="table">
-          <tr className="table-header">
-            {parameters.map((param) => {
-              return (
-                <th
-                  className={`header-item ${
-                    param.mobile
-                      ? param.tab
-                        ? "tab-hidden mobile-hidden"
-                        : "mobile-hidden"
-                      : ""
-                  }`}
-                >
-                  {param.name}
-                </th>
-              );
-            })}
-          </tr>
-          {favData.length > 0 ? (
-            favData.map((coin) => {
-              return <FavItem coin={JSON.parse(coin)} />;
-            })
-          ) : (
-            <span className="primary error">"Oops, the list is empty"</span>
-          )}
+          <thead>
+            <tr className="table-header">
+              {parameters.map((param) => {
+                return (
+                  <th
+                    key={param.id}
+                    className={`header-item ${
+                      param.mobile
+                        ? param.tab
+                          ? "tab-hidden mobile-hidden"
+                          : "mobile-hidden"
+                        : ""
+                    }`}
+                  >
+                    {param.name}
+                  </th>
+                );
+              })}
+            </tr>
+          </thead>
+          <tbody>
+            {favData.length > 0 ? (
+              favData.map((coin) => {
+                return (
+                  <FavItem key={JSON.parse(coin).id} coin={JSON.parse(coin)} />
+                );
+              })
+            ) : (
+              <tr className="primary error">
+                <td>"Oops, the list is empty"</td>
+              </tr>
+            )}
+          </tbody>
         </table>
       </div>
       <div className="footer-container">Made by Nitish Varma</div>

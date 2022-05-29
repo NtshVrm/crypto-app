@@ -6,14 +6,15 @@ import { useState } from "react";
 import { useData } from "../../context/data-context";
 
 export default function CoinItem({ coin }) {
+  // eslint-disable-next-line no-unused-vars
   const [favourite, setFavourite] = useState(false);
-  const { dispatch } = useData();
-
+  const { dispatch, favData } = useData();
+  localStorage.setItem("fav", favData);
   return (
     <tr>
       <td className="favourite">
         <div className="favourite-item">
-          {favourite ? (
+          {localStorage.getItem("fav").includes(JSON.stringify(coin)) ? (
             <FontAwesomeIcon
               onClick={() => {
                 setFavourite((prev) => !prev);

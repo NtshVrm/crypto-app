@@ -67,6 +67,7 @@ export default function Home() {
               {parameters.map((param) => {
                 return (
                   <th
+                    key={param.id}
                     className={`header-item ${
                       param.mobile
                         ? param.tab
@@ -101,7 +102,7 @@ export default function Home() {
           </thead>
           <tbody>
             {finalData.map((coin) => {
-              return <CoinItem coin={coin} />;
+              return <CoinItem key={coin.id} coin={coin} />;
             })}
           </tbody>
         </table>
