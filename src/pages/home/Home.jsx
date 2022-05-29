@@ -91,7 +91,6 @@ export default function Home() {
                             ? "HIGH_TO_LOW"
                             : "LOW_TO_HIGH",
                       });
-                      console.log(param.name, param.status);
                     }}
                   >
                     {param.name}
